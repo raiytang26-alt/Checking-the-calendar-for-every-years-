@@ -1,0 +1,41 @@
+from calendar import *
+
+year = int(input("Enter a Year: "))
+
+# Generate calendar text
+cal = calendar(year, 2, 1, 2, 1)
+
+# Show output in terminal
+print("\nCALENDAR OUTPUT:\n")
+print(cal)
+
+# Create HTML content
+html = f"""
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calendar {year}</title>
+    <style>
+        body {{
+            font-family: monospace;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }}
+        pre {{
+            font-size: 14px;
+        }}
+    </style>
+</head>
+<body>
+    <pre>{cal}</pre>
+</body>
+</html>
+"""
+
+# Save to HTML file
+file = open("calendar.html", "w")
+file.write(html)
+file.close()
+
+print("\ncalendar.html file created successfully!")
